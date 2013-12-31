@@ -535,7 +535,7 @@ struct uksm_cpu_preset_s uksm_cpu_preset[4] = {
 };
 
 /* The default value for uksm_ema_page_time if it's not initialized */
-#define UKSM_PAGE_TIME_DEFAULT	500
+#define UKSM_PAGE_TIME_DEFAULT	50000
 
 /*cost to scan one page by expotional moving average in nsecs */
 static unsigned long uksm_ema_page_time = UKSM_PAGE_TIME_DEFAULT;
@@ -562,7 +562,7 @@ static unsigned long long uksm_sleep_times;
 
 #define UKSM_RUN_STOP	0
 #define UKSM_RUN_MERGE	1
-static unsigned int uksm_run = 1;
+static unsigned int uksm_run = UKSM_RUN_MERGE;
 
 static DECLARE_WAIT_QUEUE_HEAD(uksm_thread_wait);
 static DEFINE_MUTEX(uksm_thread_mutex);
